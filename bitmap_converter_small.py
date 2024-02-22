@@ -4,7 +4,7 @@ from PIL import Image
 # filename_in = sys.argv[1]
 # filename_out = sys.argv[2]  # future use
 
-filenames_in = os.listdir('input')
+filenames_in = sorted(os.listdir('input'))
 
 output_file = open('incl_out.ino', 'w')
 
@@ -146,6 +146,8 @@ for filename in filenames_in:
     
     elif texture.size == (32, 8):
         
+        center_pixels_arr = []
+        
         even_line = True    # run forwards on even lines, reverse on odd lines
         for x in range(0, 32):
             
@@ -161,6 +163,7 @@ for filename in filenames_in:
                 
         center_data_str = form_data_str(center_pixels_arr)
         output_file.write('// center\n' + f'uint8_t {filename_no_extension}_center[256][3] = ' + center_data_str)
+        output_file.write('\n\n')
     
     pic_counter += 1
         
