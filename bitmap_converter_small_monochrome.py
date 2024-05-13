@@ -222,7 +222,7 @@ for filename in filenames_in:
                 even_line = True
                 
         center_data_str = form_data_str(center_pixels_arr)
-        output_file.write('// center\n' + f'uint8_t {filename_no_extension}_center[256] = ' + center_data_str + ';')
+        output_file.write('// center\n' + f'uint8_t {filename_no_extension}[256] = ' + center_data_str + ';')
         output_file.write('\n\n')
     
     pic_counter += 1
